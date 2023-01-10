@@ -34,6 +34,7 @@ RUN dnf \
         gcc-arm-linux-gnu-${GCC_VERSION} \
         gcc-riscv64-linux-gnu-${GCC_VERSION} \
         git \
+        lcov \
         libX11-devel \
         libXext-devel \
         libuuid-devel \
