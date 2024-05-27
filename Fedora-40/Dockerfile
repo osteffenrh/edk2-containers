@@ -17,6 +17,22 @@
 # purpose image. It contains the toolchains for all supported architectures, and
 # all build dependencies.
 FROM registry.fedoraproject.org/fedora:40 AS build
+
+# Preinstall python + dependencies as virtual environment
+RUN dnf \
+      --assumeyes \
+      --nodocs \
+      --setopt=install_weak_deps=0 \
+      install \
+      python3 \
+      python3-virtualenv
+RUN virtualenv /opt/venv
+ENV VIRTUAL_ENV /opt/venv
+ENV PATH /opt/venv/bin:$PATH
+RUN pip install --upgrade pip \
+        -r "https://raw.githubusercontent.com/tianocore/edk2/master/pip-requirements.txt"
+
+
 ARG CSPELL_VERSION=8.0.0
 ARG MARKDOWNLINT_VERSION=0.37.0
 ARG POWERSHELL_VERSION=7.4.1
