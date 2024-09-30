@@ -44,7 +44,10 @@ RUN dnf \
       install \
         acpica-tools \
         dotnet-runtime-${DOTNET_VERSION} \
+        clang \
         curl \
+        lld \
+        llvm \
         gcc-c++ \
         gcc \
         gcc-aarch64-linux-gnu \
