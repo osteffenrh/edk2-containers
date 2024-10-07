@@ -31,7 +31,7 @@ ENV VIRTUAL_ENV /opt/venv
 ENV PATH /opt/venv/bin:$PATH
 RUN pip install --upgrade pip \
         -r "https://raw.githubusercontent.com/tianocore/edk2/master/pip-requirements.txt"
-
+RUN chmod -R 777 /opt/venv
 
 ARG CSPELL_VERSION=8.0.0
 ARG MARKDOWNLINT_VERSION=0.37.0
